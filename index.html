@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sid — Student Developer & Founder</title>
+    <meta name="description" content="Grade 12 builder shipping sites, games & automations. Aiming UW CS/SE. Available for small-business projects.">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+
+    <div id="animated-background"></div>
+
+    <header id="navbar">
+        <div class="container">
+            <a class='logo' href='index.html'>
+                <i data-lucide="code-2"></i>
+                <span>Sid</span>
+            </a>
+            <nav>
+                <a href='index.html'>Home</a>
+                <a href='projects.html'>Projects</a>
+                <a href='experiences.html'>Experiences</a>
+                <a href='about.html'>About</a>
+            </nav>
+            <div class="nav-buttons">
+                <button id="theme-toggle" class="btn btn-ghost" aria-label="Toggle theme">
+                    <i data-lucide="moon" class="icon-moon"></i>
+                    <i data-lucide="sun" class="icon-sun"></i>
+                </button>
+                <a class='btn btn-secondary' href='contact.html'>Contact Me</a>
+                <button id="mobile-menu-toggle" class="btn btn-ghost mobile-only" aria-label="Open menu">
+                    <i data-lucide="menu"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    
+    <div id="mobile-menu" class="hidden">
+        <div class="mobile-menu-header">
+            <a class='logo' href='index.html'>
+                <i data-lucide="code-2"></i>
+                <span>Sid</span>
+            </a>
+             <button id="mobile-menu-close" class="btn btn-ghost" aria-label="Close menu">
+                <i data-lucide="x"></i>
+            </button>
+        </div>
+        <nav>
+            <a href='index.html'>Home</a>
+            <a href='projects.html'>Projects</a>
+            <a href='experiences.html'>Experiences</a>
+            <a href='about.html'>About</a>
+            <a class='btn btn-secondary' href='contact.html'>Contact Me</a>
+        </nav>
+    </div>
+
+    <main>
+        <!-- ====================================================== -->
+        <!-- HERO SECTION -->
+        <!-- ====================================================== -->
+        <section id="hero" class="hero">
+            <div class="container text-center">
+                <h1 class="fade-in-up">Sid — Engineering software <br> <span class="text-primary">with purpose and precision.</span></h1>
+                <p class="fade-in-up" style="animation-delay: 0.2s;">
+                    My name is <strong>Sidhant Kamboj</strong>, a Homeschooled student in Brampton, currently in the 12th grade, co-founder of SkilledStack. I'm passionate about the entire development lifecycle, from practical software to emerging AI.
+                </p>
+                <div class="hero-buttons fade-in-up" style="animation-delay: 0.4s;">
+                    <a class='btn btn-primary btn-lg shimmer-btn' href='projects.html'>View Projects <i data-lucide="arrow-right"></i></a>
+                    <a href="https://sid.skilledstack.ca/services.html" class="btn btn-secondary btn-lg hide-mobile" aria-label="Contact via email"><i data-lucide="mail"></i></a>
+                    <button id="resume-cta-btn" class="btn btn-outline btn-lg">Resume <i data-lucide="eye"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====================================================== -->
+        <!-- SPOTLIGHT PROJECTS SECTION -->
+        <!-- ====================================================== -->
+        <section id="projects" class="animated-section">
+            <div class="container">
+                <h2 class="section-title text-center">Spotlight Projects</h2>
+                <div class="grid-2">
+                    <!-- Project cards will be injected here by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ====================================================== -->
+        <!-- LIVE STATS SECTION -->
+        <!-- ====================================================== -->
+        <section id="stats" class="animated-section bg-surface">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item text-center">
+                        <h3 class="stat-number" data-target="7">0</h3>
+                        <p class="stat-label">Projects Completed</p>
+                    </div>
+                    <div class="stat-item text-center">
+                        <h3 class="stat-number" data-target="100">0</h3>
+                        <p class="stat-label">Code Commits</p>
+                    </div>
+                    <div class="stat-item text-center">
+                        <h3 class="stat-number" data-target="92">0</h3>
+                        <p class="stat-label">Average Grade %</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====================================================== -->
+        <!-- SKILLS SPOTLIGHT SECTION -->
+        <!-- ====================================================== -->
+        <section id="skills" class="skills-section">
+            <div class="skills-marquee-container">
+                <div class="skills-marquee">
+                    <!-- Skills will be injected here by JS -->
+                </div>
+                <div class="skills-marquee"> <!-- Duplicate for seamless loop -->
+                    <!-- Skills will be injected here by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ====================================================== -->
+        <!-- INTERESTS SECTION -->
+        <!-- ====================================================== -->
+        <section id="interests" class="animated-section">
+            <div class="container">
+                <h2 class="section-title text-center">More About Me</h2>
+                <div class="interests-grid">
+                    <!-- Card 1: Sports -->
+                    <div class="interest-card">
+                        <div class="interest-icon"><i data-lucide="dumbbell"></i></div>
+                        <h3>Sports & Fitness</h3>
+                        <p>I’ve been active in both team and individual sports, including basketball and swimming. Competing locally has built my discipline, teamwork, and resilience — qualities I carry into both academics and projects. I also train daily in the gym, using fitness as a way to strengthen focus, consistency, and mental toughness.</p>
+                    </div>
+                    <!-- Card 2: Mathematics -->
+                    <div class="interest-card">
+                        <div class="interest-icon"><i data-lucide="calculator"></i></div>
+                        <h3>Mathematics</h3>
+                        <p>I have a strong passion for mathematics, consistently achieving top marks and pursuing enrichment opportunities like contests and independent study. Math forms the foundation of my problem-solving skills, and I enjoy applying it to programming, algorithms, and real-world challenges.</p>
+                    </div>
+                    <!-- Card 3: Leadership -->
+                    <div class="interest-card">
+                        <div class="interest-icon"><i data-lucide="user-star"></i></div>
+                        <h3>Leadership</h3>
+                        <p>I take pride in being a clear communicator and an adaptable leader. Whether mentoring younger students, organizing events, or leading group projects, I aim to inspire collaboration and bring structure to ambitious goals. My leadership style balances strategic thinking with empathy and accountability.</p>
+                    </div>
+                    <!-- Card 4: Entrepreneurship -->
+                    <div class="interest-card">
+                        <div class="interest-icon"><i data-lucide="lightbulb"></i></div>
+                        <h3>Entrepreneurship</h3>
+                        <p>As the founder of SkilledStack and related initiatives, I’ve built websites, branding, and digital tools for local businesses. More importantly, I’ve developed a mindset for spotting opportunities, solving problems creatively, and turning ideas into ventures that generate impact and revenue.</p>
+                    </div>
+                    <!-- Card 5: Academics & Ambitions -->
+                    <div class="interest-card">
+                        <div class="interest-icon"><i data-lucide="book-heart"></i></div>
+                        <h3>Academics & Ambitions</h3>
+                        <p>I maintain high academic performance across STEM courses, including Computer Science, Advanced Functions, Chemistry, and Physics. My long-term ambition is to study Computer Science or Software Engineering at the University of Waterloo, specializing in AI and automation. I want to use technology not only to solve complex problems but also to build scalable ventures.</p>
+                    </div>
+                    <!-- Card 6: Creativity & Side Projects -->
+                    <div class="interest-card">
+                        <div class="interest-icon"><i data-lucide="brain"></i></div>
+                        <h3>Creativity & Side Projects</h3>
+                        <p>Beyond academics and client work, I love exploring side projects that blend imagination with technical depth. From building a Java-based mini operating system to experimenting with AI-powered applications, these projects let me push boundaries, learn quickly, and stay curious.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====================================================== -->
+        <!-- TIMELINE SECTION -->
+        <!-- ====================================================== -->
+        <section id="timeline" class="animated-section">
+            <div class="container">
+                <h2 class="section-title text-center">My Journey</h2>
+                <div class="timeline-container">
+                    <div class="timeline-line"></div>
+                    <!-- Timeline items will be injected here by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ====================================================== -->
+        <!-- ABOUT ME SECTION (with image placeholder) -->
+        <!-- ====================================================== -->
+        <section id="about-mini" class="animated-section bg-surface">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-image-placeholder">
+                        <img src="https://placehold.co/400x400/9F9CF3/FFFFFF?text=Sid" alt="A photo of Sid">
+                    </div>
+                    <div class="about-content">
+                        <h2 class="section-title">About Me</h2>
+                        <p>I treat school like a startup: execute daily, measure, improve. I work out 1–2 hours for discipline and build projects every week.</p>
+                        <p>My goal is to study Computer Science at the University of Waterloo and continue building my agency, <strong>SkilledStack</strong>, to help local businesses thrive online.</p>
+                        <a class='btn btn-primary' href='about.html'>Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====================================================== -->
+        <!-- FUTURE SECTION PLACEHOLDER -->
+        <!-- Add your next section here, for example: -->
+        <!-- <section id="testimonials" class="animated-section"> -->
+        <!--   <div class="container">...</div> -->
+        <!-- </section> -->
+        <!-- ====================================================== -->
+
+    </main>
+    
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-socials">
+                <a href="index.html#" target="_blank" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+                <a href="index.html#" target="_blank" aria-label="GitHub"><i data-lucide="github"></i></a>
+                <a href="index.html#" target="_blank" aria-label="X (Twitter)"><i data-lucide="twitter"></i></a>
+                <a href="index.html#" target="_blank" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+            </div>
+            <p>&copy; 2026 Sidhant Kamboj. All rights reserved.</p>
+            <p>Built with love & caffeine in Brampton, ON.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+
+    <!-- resume download popup -->
+    <div id="resume-modal-overlay" class="resume-modal-overlay">
+        <div class="resume-modal-content">
+            <button id="modal-close-btn" class="modal-close-btn"><i data-lucide="x"></i></button>
+            <h2>Resume Preview</h2>
+            <p>To protect my privacy, I provide my full resume upon request.</p>
+            <div class="blurred-pdf">
+                <img src="assets/images/resume-preview.png" alt="A blurred preview of my resume">
+            </div>
+            <a class='btn btn-primary btn-lg' href='contact.html'>Request Resume</a>
+        </div>
+    </div>
+
+</body>
+</html>

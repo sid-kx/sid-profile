@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiences — Sid</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+    <div id="animated-background"></div>
+
+    <header id="navbar">
+        <div class="container">
+            <a class='logo' href='index.html'><i data-lucide="code-2"></i><span>Sid</span></a>
+            <nav>
+                <a href='index.html'>Home</a>
+                <a href='projects.html'>Projects</a>
+                <a class='active' href='experiences.html'>Experiences</a>
+                <a href='about.html'>About</a>
+            </nav>
+            <div class="nav-buttons">
+                <button id="theme-toggle" class="btn btn-ghost"><i data-lucide="moon" class="icon-moon"></i><i data-lucide="sun" class="icon-sun"></i></button>
+                <a class='btn btn-secondary' href='contact.html'>Contact Me</a>
+                <button id="mobile-menu-toggle" class="btn btn-ghost mobile-only"><i data-lucide="menu"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero animated-section is-visible">
+            <div class="container">
+                <h1 class="section-title">My Experiences</h1>
+                <p class="section-subtitle">A timeline of my professional roles, leadership positions, and volunteer work.</p>
+            </div>
+        </section>
+
+        <section id="experience-timeline" class="animated-section is-visible">
+            <div class="container">
+                <div class="experience-timeline-container">
+                    <!-- Experiences will be dynamically loaded here by JS -->
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-socials">
+                <a href="experiences.html#" target="_blank" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+                <a href="experiences.html#" target="_blank" aria-label="GitHub"><i data-lucide="github"></i></a>
+                <a href="experiences.html#" target="_blank" aria-label="X (Twitter)"><i data-lucide="twitter"></i></a>
+                <a href="experiences.html#" target="_blank" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+            </div>
+            <p>&copy; 2026 Sidhant Kamboj. All rights reserved.</p>
+            <p>Built with love & caffeine in Brampton, ON.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

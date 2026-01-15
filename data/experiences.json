@@ -1,0 +1,35 @@
+[
+  {
+    "role": "Software Engineer Intern",
+    "company": "SkilledStack",
+    "date": "Jun 2025 — Aug 2025",
+    "points": [
+      "Built a web dashboard for client analytics using React and Chart.js.",
+      "Improved API response times by 35% through query optimization and caching.",
+      "Collaborated with a 3-person team to design and ship two production features."
+    ],
+    "skills": ["JavaScript", "React", "Node.js"]
+  },
+  {
+    "role": "Teaching Assistant — Web Dev",
+    "company": "SkilledStack Academy",
+    "date": "Sep 2024 — May 2025",
+    "points": [
+      "Led weekly lab sessions for 20+ students learning HTML/CSS/JS.",
+      "Created starter project templates and grading scripts to speed feedback.",
+      "Held 1:1 mentoring sessions and code reviews to improve student projects."
+    ],
+    "skills": ["HTML", "CSS", "JavaScript"]
+  },
+  {
+    "role": "Volunteer Developer",
+    "company": "Local Nonprofit",
+    "date": "Jan 2024 — Apr 2024",
+    "points": [
+      "Built a donation form and CMS integration that increased donations by 18%.",
+      "Reworked site accessibility and improved mobile layout across pages.",
+      "Deployed the site and wrote maintenance documentation for the team."
+    ],
+    "skills": ["Accessibility", "Deployment", "WordPress"]
+  }
+]

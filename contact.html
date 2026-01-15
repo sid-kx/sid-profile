@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact — Sid</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+    <div id="animated-background"></div>
+
+    <header id="navbar">
+        <div class="container">
+            <a class='logo' href='index.html'><i data-lucide="code-2"></i><span>Sid</span></a>
+            <nav>
+                <a href='index.html'>Home</a>
+                <a href='projects.html'>Projects</a>
+                <a href='experiences.html'>Experiences</a>
+                <a href='about.html'>About</a>
+            </nav>
+            <div class="nav-buttons">
+                <button id="theme-toggle" class="btn btn-ghost"><i data-lucide="moon" class="icon-moon"></i><i data-lucide="sun" class="icon-sun"></i></button>
+                <a class='btn btn-secondary' href='contact.html'>Contact Me</a>
+                <button id="mobile-menu-toggle" class="btn btn-ghost mobile-only"><i data-lucide="menu"></i></button>
+            </div>
+        </div>
+    </header>
+    
+    <div id="mobile-menu" class="hidden">
+        <!-- Mobile Menu structure from index.html -->
+    </div>
+
+    <main>
+        <section class="page-hero animated-section is-visible">
+            <div class="container text-center">
+                <h1 class="section-title">Let's Build Something</h1>
+                <p class="section-subtitle">Have a project in mind or just want to connect? Send me a message.</p>
+            </div>
+        </section>
+
+        <section id="contact-form" class="animated-section is-visible">
+            <div class="container">
+                <form name="contact" method="POST" data-netlify="true" class="contact-form">
+                    <input type="hidden" name="form-name" value="contact" />
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-socials">
+                <a href="contact.html#" target="_blank" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+                <a href="contact.html#" target="_blank" aria-label="GitHub"><i data-lucide="github"></i></a>
+                <a href="contact.html#" target="_blank" aria-label="X (Twitter)"><i data-lucide="twitter"></i></a>
+                <a href="contact.html#" target="_blank" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+            </div>
+            <p>&copy; 2026 Sidhant Kamboj. All rights reserved.</p>
+            <p>Built with love & caffeine in Brampton, ON.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

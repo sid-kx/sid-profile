@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects — Sid</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+    <div id="animated-background"></div>
+
+    <header id="navbar">
+        <div class="container">
+            <a class='logo' href='index.html'><i data-lucide="code-2"></i><span>Sid</span></a>
+            <nav>
+                <a href='index.html'>Home</a>
+                <a href='projects.html'>Projects</a>
+                <a href='experiences.html'>Experiences</a>
+                <a href='about.html'>About</a>
+            </nav>
+            <div class="nav-buttons">
+                <button id="theme-toggle" class="btn btn-ghost"><i data-lucide="moon" class="icon-moon"></i><i data-lucide="sun" class="icon-sun"></i></button>
+                <a class='btn btn-secondary' href='contact.html'>Contact Me</a>
+                <button id="mobile-menu-toggle" class="btn btn-ghost mobile-only"><i data-lucide="menu"></i></button>
+            </div>
+        </div>
+    </header>
+    
+    <div id="mobile-menu" class="hidden">
+        <!-- Mobile Menu structure from index.html -->
+    </div>
+
+    <main>
+        <section class="page-hero animated-section is-visible">
+            <div class="container">
+                <h1 class="section-title">My Work</h1>
+                <p class="section-subtitle">A collection of projects I've built for clients, for fun, and for learning.</p>
+            </div>
+        </section>
+
+        <!-- REPLACE the entire project-grid section in projects.html with this -->
+        <section id="project-grid" class="animated-section is-visible">
+            <div class="container">
+                <div class="grid-2">
+                    <!-- Project Card 1 -->
+                    <div class="project-card">
+                        <img src="https://placehold.co/600x400/9F9CF3/FFFFFF?text=Ascension" alt="Ascension Game">
+                        <div class="project-card-content">
+                            <h3>Ascension — Java Swing Game</h3>
+                            <p>My first game project, featuring a complete game loop, collision detection, and scoring.</p>
+                            <div class="project-tags"><span>Java</span><span>Swing</span></div>
+                            <a href="projects.html#" class="btn btn-outline">Case Study</a>
+                        </div>
+                    </div>
+                    <!-- Project Card 2 -->
+                    <div class="project-card">
+                        <img src="https://placehold.co/600x400/A7F3D0/0F1226?text=Pizza+Site" alt="Shakespeare Pizza Site">
+                        <div class="project-card-content">
+                            <h3>Shakespeare Pizza — Client Site</h3>
+                            <p>A fast, modern marketing website for a local business with an integrated online ordering flow.</p>
+                            <div class="project-tags"><span>HTML</span><span>CSS</span><span>JS</span><span>Netlify</span></div>
+                            <a href="projects.html#" class="btn btn-outline">Case Study</a>
+                        </div>
+                    </div>
+                    <!-- Project Card 3 -->
+                    <div class="project-card">
+                        <img src="https://placehold.co/600x400/FECACA/0F1226?text=Bakery+Demo" alt="Baran's Bakery Demo">
+                        <div class="project-card-content">
+                            <h3>Baran’s Bakery — Demo Landing</h3>
+                            <p>A conversion-focused demo landing page designed to attract local bakery clients.</p>
+                            <div class="project-tags"><span>React</span><span>Tailwind CSS</span></div>
+                            <a href="projects.html#" class="btn btn-outline">Case Study</a>
+                        </div>
+                    </div>
+                    <!-- Project Card 4 -->
+                    <div class="project-card">
+                        <img src="https://placehold.co/600x400/9F9CF3/FFFFFF?text=AirDraw" alt="AirDraw Experiment">
+                        <div class="project-card-content">
+                            <h3>AirDraw — Canvas Experiment</h3>
+                            <p>A proof-of-concept web app using the MediaDevices API to draw with your camera.</p>
+                            <div class="project-tags"><span>JavaScript</span><span>Canvas</span><span>API</span></div>
+                            <a href="projects.html#" class="btn btn-outline">Case Study</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-socials">
+                <a href="projects.html#" target="_blank" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+                <a href="projects.html#" target="_blank" aria-label="GitHub"><i data-lucide="github"></i></a>
+                <a href="projects.html#" target="_blank" aria-label="X (Twitter)"><i data-lucide="twitter"></i></a>
+                <a href="projects.html#" target="_blank" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+            </div>
+            <p>&copy; 2026 Sidhant Kamboj. All rights reserved.</p>
+            <p>Built with love & caffeine in Brampton, ON.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
