@@ -322,6 +322,13 @@ html.dark .project-tags span { color: var(--ink); }
     max-width: 800px;
     margin: 0 auto;
 }
+
+/* Make homepage timeline background transparent so only the line, dots and cards show */
+#experience-preview, #experience-preview .container {
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+}
 .timeline-line {
     position: absolute;
     left: 1rem;

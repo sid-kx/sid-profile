@@ -35,26 +35,52 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const fallbackExperiences = [
             {
-                role: "Software Engineer Intern",
-                company: "SkilledStack",
-                date: "Jun 2025 — Aug 2025",
-                points: [
-                    "Built a web dashboard for client analytics using React and Chart.js.",
-                    "Improved API response times by 35% through query optimization and caching.",
-                    "Collaborated with a 3-person team to design and ship two production features."
+                "role": "Summer Assistant",
+                "company": "Family Day Daycare",
+                "date": "Jun 2025 — Aug 2025",
+                "points": [
+                "Supported educators with daily classroom routines, supervision, and safe transitions.",
+                "Assisted with planning and running age-appropriate activities (literacy, art, outdoor play).",
+                "Maintained a clean, organized environment and followed health/safety procedures.",
+                "Built strong communication skills by collaborating with staff and engaging with children."
                 ],
-                skills: ["JavaScript", "React", "Node.js"]
+                "skills": ["JavaScript", "React", "Node.js"]
             },
             {
-                role: "Teaching Assistant — Web Dev",
-                company: "SkilledStack Academy",
-                date: "Sep 2024 — May 2025",
-                points: [
-                    "Led weekly lab sessions for 20+ students learning HTML/CSS/JS.",
-                    "Created starter project templates and grading scripts to speed feedback.",
-                    "Held 1:1 mentoring sessions and code reviews to improve student projects."
+                "role": "Co-founder SkilledStack",
+                "company": "SkilledStack",
+                "date": "Sep 2024 — Present",
+                "points": [
+                "Built and launched modern websites for local clients using HTML/CSS/JavaScript.",
+                "Handled client communication, requirements gathering, and weekly progress updates.",
+                "Improved site performance, mobile responsiveness, and accessibility across pages.",
+                "Managed hosting, deployments, and quick iteration based on client feedback."
                 ],
-                skills: ["HTML", "CSS", "JavaScript"]
+                "skills": ["HTML", "CSS", "JavaScript"]
+            },
+            {
+                "role": "TryHackMe Student",
+                "company": "TryHackMe",
+                "date": "Sep 2025 — Present",
+                "points": [
+                "Completed hands-on cybersecurity labs focused on networking, Linux, and web security.",
+                "Practiced recon, vulnerability basics, and safe testing methodologies in guided rooms.",
+                "Documented learnings and created small scripts/tools to automate simple tasks.",
+                "Built consistency through weekly training and skill progression."
+                ],
+                "skills": ["Accessibility", "Cyber Security", "WordPress"]
+            },
+            {
+                "role": "Hack Club Flagship",
+                "company": "TryHackMe",
+                "date": "60 hour Challenge",
+                "points": [
+                "Built a project from scratch during a 60-hour challenge with rapid iteration.",
+                "Designed the UI, structured components cleanly, and shipped a working MVP.",
+                "Focused on clean code, responsiveness, and small visual polish improvements.",
+                "Tracked progress, solved bugs fast, and pushed updates consistently."
+                ],
+                "skills": ["JavaScript", "CSS", "HTML"]
             }
         ];
 
