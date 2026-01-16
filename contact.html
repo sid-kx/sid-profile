@@ -107,16 +107,34 @@
         const API_BASE = isLocal ? 'http://localhost:3000' : PROD_API_BASE;
 
         async function sendMessage(payload) {
-          const res = await fetch(`${API_BASE}/api/contact`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload)
-          });
-          const json = await res.json().catch(() => ({}));
-          if (!res.ok || !json.ok) {
-            throw new Error(json.error || 'Failed to send message.');
+          const controller = new AbortController();
+          const timeoutMs = 20000; // 20s (Render free tier may take a moment to wake)
+          const timer = setTimeout(() => controller.abort(), timeoutMs);
+
+          try {
+            const res = await fetch(`${API_BASE}/api/contact`, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(payload),
+              signal: controller.signal
+            });
+
+            const json = await res.json().catch(() => ({}));
+
+            if (!res.ok || !json.ok) {
+              throw new Error(json.error || 'Failed to send message.');
+            }
+
+            return json;
+          } catch (err) {
+            // Handle fetch abort (timeout)
+            if (err?.name === 'AbortError') {
+              throw new Error('Server took too long to respond (it may be waking up). Please try again.');
+            }
+            throw err;
+          } finally {
+            clearTimeout(timer);
           }
-          return json;
         }
 
         form.addEventListener('submit', async (e) => {
