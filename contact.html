@@ -25,15 +25,32 @@
             <div class="nav-buttons">
                 <button id="theme-toggle" class="btn btn-ghost"><i data-lucide="moon" class="icon-moon"></i><i data-lucide="sun" class="icon-sun"></i></button>
                 <a class='btn btn-secondary' href='contact.html'>Contact Me</a>
-                <button id="mobile-menu-toggle" class="btn btn-ghost mobile-only"><i data-lucide="menu"></i></button>
+                <button id="mobile-menu-toggle" class="btn btn-ghost mobile-only" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false"><i data-lucide="menu"></i></button>
             </div>
         </div>
     </header>
     
-    <div id="mobile-menu" class="hidden">
-        <!-- Mobile Menu structure from index.html -->
-    </div>
+    
+    <div id="mobile-menu">
+        <div class="mobile-menu-header">
+            <a class="logo" href="index.html">
+            <i data-lucide="code-2"></i>
+            <span>Sid</span>
+            </a>
 
+            <button id="mobile-menu-close" class="btn btn-ghost" aria-label="Close menu" aria-controls="mobile-menu" aria-expanded="true">
+            <i data-lucide="x"></i>
+            </button>
+        </div>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="projects.html">Projects</a>
+            <a href="experiences.html">Experiences</a>
+            <a href="about.html">About</a>
+            <a class="btn btn-secondary" href="contact.html">Contact Me</a>
+        </nav>
+    </div>
     <main>
         <section class="page-hero animated-section is-visible">
             <div class="container text-center">

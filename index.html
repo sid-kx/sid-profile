@@ -33,20 +33,20 @@
                     <i data-lucide="sun" class="icon-sun"></i>
                 </button>
                 <a class='btn btn-secondary' href='contact.html'>Contact Me</a>
-                <button id="mobile-menu-toggle" class="btn btn-ghost mobile-only" aria-label="Open menu">
+                <button id="mobile-menu-toggle" class="btn btn-ghost mobile-only" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
                     <i data-lucide="menu"></i>
                 </button>
             </div>
         </div>
     </header>
     
-    <div id="mobile-menu" class="hidden">
+    <div id="mobile-menu">
         <div class="mobile-menu-header">
             <a class='logo' href='index.html'>
                 <i data-lucide="code-2"></i>
                 <span>Sid</span>
             </a>
-             <button id="mobile-menu-close" class="btn btn-ghost" aria-label="Close menu">
+             <button id="mobile-menu-close" class="btn btn-ghost" aria-label="Close menu" aria-controls="mobile-menu" aria-expanded="true">
                 <i data-lucide="x"></i>
             </button>
         </div>
@@ -71,7 +71,7 @@
                 </p>
                 <div class="hero-buttons fade-in-up" style="animation-delay: 0.4s;">
                     <a class='btn btn-primary btn-lg shimmer-btn' href='projects.html'>View Projects <i data-lucide="arrow-right"></i></a>
-                    <a href="https://sid.skilledstack.ca/services.html" class="btn btn-secondary btn-lg hide-mobile" aria-label="Contact via email"><i data-lucide="mail"></i></a>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=sidkam127@gmail.com" class="btn btn-secondary btn-lg hide-mobile" aria-label="Contact via email"><i data-lucide="mail"></i></a>
                     <button id="resume-cta-btn" class="btn btn-outline btn-lg">Resume <i data-lucide="eye"></i></button>
                 </div>
             </div>
@@ -180,7 +180,18 @@
                 <h2 class="section-title text-center">My Journey</h2>
                 <div class="timeline-container">
                     <div class="timeline-line"></div>
-                    <!-- Timeline items will be injected here by JS -->
+                    <section id="experience-preview" class="animated-section bg-surface">
+                        <div class="container">
+                            
+
+                            <!-- JS will inject experiences here -->
+                            <div class="experience-timeline-container" data-limit="2"></div>
+
+                            <div class="text-center" style="margin-top: 1.5rem;">
+                            <a class="btn btn-outline" href="experiences.html">View Full Timeline</a>
+                            </div>
+                        </div>
+                        </section>
                 </div>
             </div>
         </section>

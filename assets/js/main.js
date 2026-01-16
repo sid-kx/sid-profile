@@ -69,24 +69,47 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- RENDER DYNAMIC CONTENT ---
 
     // ADD THIS ENTIRE NEW FUNCTION to main.js
-    function renderExperiences(experiences) {
-        const container = document.querySelector('.experience-timeline-container');
-        if (!container) return;
+        function renderExperiences(experiences) {
+        const containers = document.querySelectorAll('.experience-timeline-container');
+        if (!containers.length) return;
 
-        container.innerHTML = experiences.map(exp => `
-            <div class="experience-card">
-                <h3 class="experience-role">${exp.role}</h3>
-                <p class="experience-company">${exp.company}</p>
-                <p class="experience-date">${exp.date}</p>
-                <ul class="experience-points">
-                    ${exp.points.map(point => `<li>${point}</li>`).join('')}
-                </ul>
-                <div class="project-tags">
-                    ${exp.skills.map(skill => `<span>${skill}</span>`).join('')}
+        const safeExperiences = Array.isArray(experiences) ? experiences : [];
+
+        containers.forEach(container => {
+            const limit = Number.parseInt(container.dataset.limit || '0', 10);
+            const items = (limit > 0) ? safeExperiences.slice(0, limit) : safeExperiences;
+
+            if (!items.length) {
+            container.innerHTML = `<p style="color: var(--ink-light); text-align:center;">No experiences found.</p>`;
+            return;
+            }
+
+            container.innerHTML = items.map(exp => {
+            const points = Array.isArray(exp.points) ? exp.points : [];
+            const skills = Array.isArray(exp.skills) ? exp.skills : [];
+
+            return `
+                <div class="experience-card">
+                <h3 class="experience-role">${exp.role ?? ''}</h3>
+                <p class="experience-company">${exp.company ?? ''}</p>
+                <p class="experience-date">${exp.date ?? ''}</p>
+
+                ${points.length ? `
+                    <ul class="experience-points">
+                    ${points.map(point => `<li>${point}</li>`).join('')}
+                    </ul>
+                ` : ''}
+
+                ${skills.length ? `
+                    <div class="project-tags">
+                    ${skills.map(skill => `<span>${skill}</span>`).join('')}
+                    </div>
+                ` : ''}
                 </div>
-            </div>
-        `).join('');
-    }
+            `;
+            }).join('');
+        });
+        }
 
     function renderProjects(projects) {
         // This new selector is more robust and finds the project grid on any page.
