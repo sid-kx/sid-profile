@@ -59,10 +59,9 @@
             </div>
         </section>
 
-        <section id="contact-form" class="animated-section is-visible">
+        <section id="contact" class="animated-section is-visible">
             <div class="container">
-                <form name="contact" method="POST" data-netlify="true" class="contact-form">
-                    <input type="hidden" name="form-name" value="contact" />
+                <form id="contact-form" class="contact-form" novalidate>
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" id="name" name="name" required>
@@ -76,6 +75,7 @@
                         <textarea id="message" name="message" rows="5" required></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary btn-lg">Send Message</button>
+                    <p id="form-status" class="section-subtitle" style="margin-top: 1rem; text-align:center;"></p>
                 </form>
             </div>
         </section>
@@ -95,5 +95,63 @@
     </footer>
 
     <script src="assets/js/main.js"></script>
+    <script>
+      (function () {
+        const form = document.getElementById('contact-form');
+        const statusEl = document.getElementById('form-status');
+
+        // Use localhost while testing, and your deployed URL when live.
+        // IMPORTANT: After deploying backend (Render/Railway), replace the production URL below.
+        const PROD_API_BASE = 'https://sid-contact-backend.onrender.com';
+        const isLocal = ['localhost', '127.0.0.1'].includes(window.location.hostname);
+        const API_BASE = isLocal ? 'http://localhost:3000' : PROD_API_BASE;
+
+        async function sendMessage(payload) {
+          const res = await fetch(`${API_BASE}/api/contact`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+          const json = await res.json().catch(() => ({}));
+          if (!res.ok || !json.ok) {
+            throw new Error(json.error || 'Failed to send message.');
+          }
+          return json;
+        }
+
+        form.addEventListener('submit', async (e) => {
+          e.preventDefault();
+
+          const name = document.getElementById('name')?.value?.trim();
+          const email = document.getElementById('email')?.value?.trim();
+          const message = document.getElementById('message')?.value?.trim();
+
+          if (!name || !email || !message) {
+            statusEl.textContent = '❌ Please fill in all fields.';
+            return;
+          }
+
+          const button = form.querySelector('button[type="submit"]');
+          if (button) {
+            button.disabled = true;
+            button.textContent = 'Sending…';
+          }
+          statusEl.textContent = 'Sending…';
+
+          try {
+            await sendMessage({ name, email, message });
+            statusEl.textContent = '✅ Message sent! I’ll reply soon.';
+            form.reset();
+          } catch (err) {
+            statusEl.textContent = `❌ ${err.message || 'Network error. Try again.'}`;
+          } finally {
+            if (button) {
+              button.disabled = false;
+              button.textContent = 'Send Message';
+            }
+          }
+        });
+      })();
+    </script>
 </body>
 </html>
