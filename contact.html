@@ -95,81 +95,80 @@
     </footer>
 
     <script src="assets/js/main.js"></script>
-    <script>
-      (function () {
-        const form = document.getElementById('contact-form');
-        const statusEl = document.getElementById('form-status');
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-app.js";
+      import {
+        getFirestore,
+        collection,
+        addDoc,
+        serverTimestamp,
+      } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-firestore.js";
 
-        // Use localhost while testing, and your deployed URL when live.
-        // IMPORTANT: After deploying backend (Render/Railway), replace the production URL below.
-        const PROD_API_BASE = 'https://sid-contact-backend.onrender.com';
-        const isLocal = ['localhost', '127.0.0.1'].includes(window.location.hostname);
-        const API_BASE = isLocal ? 'http://localhost:3000' : PROD_API_BASE;
+      // ✅ Your Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyDXlJjomOPtkQKqYIqa7r4LQ9-AAddKgh4",
+        authDomain: "sid-portfolio-2b486.firebaseapp.com",
+        projectId: "sid-portfolio-2b486",
+        storageBucket: "sid-portfolio-2b486.firebasestorage.app",
+        messagingSenderId: "640672233566",
+        appId: "1:640672233566:web:2bd6db457f16844b0b5ccf",
+        measurementId: "G-6EX6W937Z3",
+      };
 
-        async function sendMessage(payload) {
-          const controller = new AbortController();
-          const timeoutMs = 20000; // 20s (Render free tier may take a moment to wake)
-          const timer = setTimeout(() => controller.abort(), timeoutMs);
+      // Initialize Firebase + Firestore
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
 
-          try {
-            const res = await fetch(`${API_BASE}/api/contact`, {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify(payload),
-              signal: controller.signal
-            });
+      // Form elements
+      const form = document.getElementById("contact-form");
+      const statusEl = document.getElementById("form-status");
 
-            const json = await res.json().catch(() => ({}));
-
-            if (!res.ok || !json.ok) {
-              throw new Error(json.error || 'Failed to send message.');
-            }
-
-            return json;
-          } catch (err) {
-            // Handle fetch abort (timeout)
-            if (err?.name === 'AbortError') {
-              throw new Error('Server took too long to respond (it may be waking up). Please try again.');
-            }
-            throw err;
-          } finally {
-            clearTimeout(timer);
-          }
-        }
-
-        form.addEventListener('submit', async (e) => {
+      // Safety check
+      if (!form || !statusEl) {
+        console.error("Contact form elements not found.");
+      } else {
+        form.addEventListener("submit", async (e) => {
           e.preventDefault();
 
-          const name = document.getElementById('name')?.value?.trim();
-          const email = document.getElementById('email')?.value?.trim();
-          const message = document.getElementById('message')?.value?.trim();
+          const name = document.getElementById("name")?.value?.trim();
+          const email = document.getElementById("email")?.value?.trim();
+          const message = document.getElementById("message")?.value?.trim();
 
           if (!name || !email || !message) {
-            statusEl.textContent = '❌ Please fill in all fields.';
+            statusEl.textContent = "❌ Please fill in all fields.";
             return;
           }
 
           const button = form.querySelector('button[type="submit"]');
           if (button) {
             button.disabled = true;
-            button.textContent = 'Sending…';
+            button.textContent = "Sending…";
           }
-          statusEl.textContent = 'Sending…';
+          statusEl.textContent = "Sending…";
 
           try {
-            await sendMessage({ name, email, message });
-            statusEl.textContent = '✅ Message sent! I’ll reply soon.';
+            // ✅ Save submission to Firestore
+            await addDoc(collection(db, "contactMessages"), {
+              name,
+              email,
+              message,
+              createdAt: serverTimestamp(),
+              source: window.location.hostname,
+            });
+
+            statusEl.textContent = "✅ Message sent! I’ll reply soon.";
             form.reset();
           } catch (err) {
-            statusEl.textContent = `❌ ${err.message || 'Network error. Try again.'}`;
+            console.error("Firestore error:", err);
+            statusEl.textContent = "❌ Could not send. Please try again.";
           } finally {
             if (button) {
               button.disabled = false;
-              button.textContent = 'Send Message';
+              button.textContent = "Send Message";
             }
           }
         });
-      })();
+      }
     </script>
 </body>
 </html>
