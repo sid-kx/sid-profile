@@ -14,73 +14,51 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- INITIALIZE THE SITE ---
     async function initializeSite() {
-        // Fetch all data concurrently
-        const [projects, timelineEvents, config, skills, experiences] = await Promise.all([
-            fetchData('data/projects.json'),
-            fetchData('data/timeline.json'),
-            fetchData('data/config.json'),
-            fetchData('data/skills.json'),
-            fetchData('data/experiences.json')
-        ]);
+        // Fetch the only dynamic data file currently used by the site.
+        // Project cards are hardcoded directly in index.html and projects.html.
+        const experiences = await fetchData('data/experiences.json');
+        console.debug('initializeSite: fetched experiences', experiences);
 
         // Render content if data is available. Provide a fallback for experiences
         // so the timeline still shows when fetch fails (common when opening
         // pages via file:// without a local server).
-    if (projects) renderProjects(projects);
-    if (timelineEvents) renderTimeline(timelineEvents);
-    if (config) updateStaticContent(config);
-    if (skills) renderSkills(skills);
-
-    console.debug('initializeSite: fetched data', { projects, timelineEvents, config, skills, experiences });
 
     const fallbackExperiences = [
+            {
+                "role": "Web Developer & Marketing Manager",
+                "company": "Pinnacle Realty",
+                "date": "Feb 2026 — Present",
+                "points": [
+                "Lead the development and improvement of Pinnacle Realty’s digital presence across custom websites and online platforms.",
+                "Design and build responsive pages using HTML, CSS, and JavaScript with a focus on performance, user experience, and clean branding.",
+                "Manage digital marketing initiatives including brand positioning, content strategy, and online outreach.",
+                "Work closely with leadership to launch new features, improve conversions, and keep the brand consistent across digital channels."
+                ],
+                "skills": ["HTML", "CSS", "JavaScript", "Marketing", "Web Design"]
+            },
+            {
+                "role": "Assistant Manager",
+                "company": "Kumon Canada, Inc.",
+                "date": "Mar 2025 — Jun 2025",
+                "points": [
+                "Assisted students with math and reading worksheets while following the Kumon learning method.",
+                "Supported younger students by explaining concepts clearly and encouraging independent learning.",
+                "Helped maintain an organized classroom environment and supported daily centre operations.",
+                "Built communication, leadership, and student-support skills through consistent on-site work."
+                ],
+                "skills": ["Tutoring", "Leadership", "Communication", "Math", "Student Support"]
+            },
             {
                 "role": "Summer Assistant",
                 "company": "Family Day Daycare",
                 "date": "Jun 2025 — Aug 2025",
                 "points": [
                 "Supported educators with daily classroom routines, supervision, and safe transitions.",
-                "Assisted with planning and running age-appropriate activities (literacy, art, outdoor play).",
-                "Maintained a clean, organized environment and followed health/safety procedures.",
+                "Assisted with planning and running age-appropriate activities including literacy, art, and outdoor play.",
+                "Maintained a clean, organized environment while following health and safety procedures.",
                 "Built strong communication skills by collaborating with staff and engaging with children."
                 ],
-                "skills": ["JavaScript", "React", "Node.js"]
-            },
-            {
-                "role": "Co-founder SkilledStack",
-                "company": "SkilledStack",
-                "date": "Sep 2024 — Present",
-                "points": [
-                "Built and launched modern websites for local clients using HTML/CSS/JavaScript.",
-                "Handled client communication, requirements gathering, and weekly progress updates.",
-                "Improved site performance, mobile responsiveness, and accessibility across pages.",
-                "Managed hosting, deployments, and quick iteration based on client feedback."
-                ],
-                "skills": ["HTML", "CSS", "JavaScript"]
-            },
-            {
-                "role": "TryHackMe Student",
-                "company": "TryHackMe",
-                "date": "Sep 2025 — Present",
-                "points": [
-                "Completed hands-on cybersecurity labs focused on networking, Linux, and web security.",
-                "Practiced recon, vulnerability basics, and safe testing methodologies in guided rooms.",
-                "Documented learnings and created small scripts/tools to automate simple tasks.",
-                "Built consistency through weekly training and skill progression."
-                ],
-                "skills": ["Accessibility", "Cyber Security", "WordPress"]
-            },
-            {
-                "role": "Hack Club Flagship",
-                "company": "TryHackMe",
-                "date": "60 hour Challenge",
-                "points": [
-                "Built a project from scratch during a 60-hour challenge with rapid iteration.",
-                "Designed the UI, structured components cleanly, and shipped a working MVP.",
-                "Focused on clean code, responsiveness, and small visual polish improvements.",
-                "Tracked progress, solved bugs fast, and pushed updates consistently."
-                ],
-                "skills": ["JavaScript", "CSS", "HTML"]
+                "skills": ["Childcare", "Teamwork", "Communication", "Responsibility"]
             }
         ];
 
@@ -149,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <h3>${p.title}</h3>
                     <p>${p.summary}</p>
                     <div class="project-tags">${p.stack.map(t => `<span>${t}</span>`).join('')}</div>
-                    <a href="${p.link}" class="btn btn-outline">Case Study</a>
+                    <a href="${p.link}" class="btn btn-outline" target="_blank">Case Study</a>
                 </div>
             </div>
         `).join('');
@@ -205,7 +183,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- INITIALIZE INTERACTIVE ELEMENTS (All the old code goes here) ---
     function initializeInteractiveElements() {
-        lucide.createIcons();
+        if (window.lucide) {
+            lucide.createIcons();
+        }
 
 
         const fixSafariAnimation = () => {
@@ -249,8 +229,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         };
-        const statObserver = new IntersectionObserver(animateStatNumbers, { threshold: 0.5 });
-        document.querySelectorAll('.stat-number').forEach(num => statObserver.observe(num));
+        const statNumbers = document.querySelectorAll('.stat-number');
+        if ('IntersectionObserver' in window && statNumbers.length) {
+            const statObserver = new IntersectionObserver(animateStatNumbers, { threshold: 0.25 });
+            statNumbers.forEach(num => statObserver.observe(num));
+        } else {
+            statNumbers.forEach(num => {
+                num.innerText = num.getAttribute('data-target') || num.innerText;
+            });
+        }
 
 
         // Navbar scroll logic...
@@ -290,11 +277,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const modalCloseBtn = document.getElementById('modal-close-btn');
 
         const openModal = () => {
+            if (!modalOverlay) return;
             modalOverlay.classList.add('visible');
             document.body.classList.add('modal-open');
         };
 
         const closeModal = () => {
+            if (!modalOverlay) return;
             modalOverlay.classList.remove('visible');
             document.body.classList.remove('modal-open');
         };
@@ -333,19 +322,25 @@ document.addEventListener('DOMContentLoaded', () => {
         }, { threshold: 0.15 });
         animatedElements.forEach(el => observer.observe(el));
 
-        // Parallax scrolling logic...
-        const heroContent = document.querySelector('#hero .container');
+        // Gentle background parallax only. Keep hero content fixed in the normal layout
+        // so the title does not slide into the navbar while scrolling.
         const background = document.getElementById('animated-background');
-        window.addEventListener('scroll', () => {
-            const offset = window.pageYOffset;
-            if(heroContent) {
-                heroContent.style.transform = `translateY(${offset * 0.4}px)`;
-                heroContent.style.opacity = 1 - offset / 600;
-            }
-            background.style.transform = `translateY(${offset * 0.5}px)`;
-        });
+        if (background) {
+            window.addEventListener('scroll', () => {
+                const offset = window.pageYOffset;
+                background.style.transform = `translateY(${offset * 0.15}px)`;
+            });
+        }
     }
 
     // --- START THE APP ---
-    initializeSite();
+    initializeSite().catch(error => {
+        console.error('Site initialization failed:', error);
+        if (window.lucide) {
+            lucide.createIcons();
+        }
+        document.querySelectorAll('.stat-number').forEach(num => {
+            num.innerText = num.getAttribute('data-target') || num.innerText;
+        });
+    });
 });

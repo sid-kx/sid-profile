@@ -1,46 +1,38 @@
 [
   {
+    "role": "Web Developer & Marketing Manager",
+    "company": "Pinnacle Realty",
+    "date": "Feb 2026 — Present",
+    "points": [
+      "Lead the development and improvement of Pinnacle Realty’s digital presence across custom websites and online platforms.",
+      "Design and build responsive pages using HTML, CSS, and JavaScript with a focus on performance, user experience, and clean branding.",
+      "Manage digital marketing initiatives including brand positioning, content strategy, and online outreach.",
+      "Work closely with leadership to launch new features, improve conversions, and keep the brand consistent across digital channels."
+    ],
+    "skills": ["HTML", "CSS", "JavaScript", "Marketing", "Web Design"]
+  },
+  {
+    "role": "Assistant Manager",
+    "company": "Kumon Canada, Inc.",
+    "date": "Mar 2025 — Jun 2025",
+    "points": [
+      "Assisted students with math and reading worksheets while following the Kumon learning method.",
+      "Supported younger students by explaining concepts clearly and encouraging independent learning.",
+      "Helped maintain an organized classroom environment and supported daily centre operations.",
+      "Built communication, leadership, and student-support skills through consistent on-site work."
+    ],
+    "skills": ["Tutoring", "Leadership", "Communication", "Math", "Student Support"]
+  },
+  {
     "role": "Summer Assistant",
     "company": "Family Day Daycare",
     "date": "Jun 2025 — Aug 2025",
     "points": [
-      "Built a web dashboard for client analytics using React and Chart.js.",
-      "Improved API response  by 35% through query optimization and caching.",
-      "Collaborated with a 3-person team to design and ship two production features."
+      "Supported educators with daily classroom routines, supervision, and safe transitions.",
+      "Assisted with planning and running age-appropriate activities including literacy, art, and outdoor play.",
+      "Maintained a clean, organized environment while following health and safety procedures.",
+      "Built strong communication skills by collaborating with staff and engaging with children."
     ],
-    "skills": ["JavaScript", "React", "Node.js"]
-  },
-  {
-    "role": "Co-founder SkilledStack",
-    "company": "SkilledStack",
-    "date": "Sep 2024 — Present",
-    "points": [
-      "Led weekly lab sessions for 20+ students learning HTML/CSS/JS.",
-      "Created starter project templates and grading scripts to speed feedback.",
-      "Held 1:1 mentoring sessions and code reviews to improve student projects."
-    ],
-    "skills": ["HTML", "CSS", "JavaScript"]
-  },
-  {
-    "role": "TryHackMe Student",
-    "company": "TryHackMe",
-    "date": "Sep 2025 — Present",
-    "points": [
-      "Built a donation form and CMS integration that increased donations by 18%.",
-      "Reworked site accessibility and improved mobile layout across pages.",
-      "Deployed the site and wrote maintenance documentation for the team."
-    ],
-    "skills": ["Accessibility", "Cyber Security", "WordPress"]
-  },
-  {
-    "role": "Hack Club Flagship",
-    "company": "TryHackMe",
-    "date": "60 hour Challenge",
-    "points": [
-      "Built a donation form and CMS integration that increased donations by 18%.",
-      "Reworked site accessibility and improved mobile layout across pages.",
-      "Deployed the site and wrote maintenance documentation for the team."
-    ],
-    "skills": ["JavaScript", "CSS", "HTML"]
+    "skills": ["Childcare", "Teamwork", "Communication", "Responsibility"]
   }
 ]

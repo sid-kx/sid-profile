@@ -61,7 +61,11 @@
 
         <section id="contact" class="animated-section is-visible">
             <div class="container">
-                <form id="contact-form" class="contact-form" novalidate>
+                <form id="contact-form" class="contact-form" action="https://formsubmit.co/sidkam127@gmail.com" method="POST">
+                    <input type="hidden" name="_subject" value="New message from Sid Portfolio">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_next" value="https://sid-kx.github.io/sid-profile/contact.html?sent=true">
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" id="name" name="name" required>
@@ -69,6 +73,10 @@
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" value="Portfolio Inquiry" required>
                     </div>
                     <div class="form-group">
                         <label for="message">Message</label>
@@ -90,84 +98,17 @@
                 <a href="contact.html#" target="_blank" aria-label="Instagram"><i data-lucide="instagram"></i></a>
             </div>
             <p>&copy; 2026 Sidhant Kamboj. All rights reserved.</p>
-            <p>Built with love & caffeine in Brampton, ON.</p>
+            <p>Built with love & caffeine in Mississauga, ON.</p>
         </div>
     </footer>
 
     <script src="assets/js/main.js"></script>
-    <script type="module">
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-app.js";
-      import {
-        getFirestore,
-        collection,
-        addDoc,
-        serverTimestamp,
-      } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-firestore.js";
-
-      // ✅ Your Firebase configuration
-      const firebaseConfig = {
-        apiKey: "AIzaSyDXlJjomOPtkQKqYIqa7r4LQ9-AAddKgh4",
-        authDomain: "sid-portfolio-2b486.firebaseapp.com",
-        projectId: "sid-portfolio-2b486",
-        storageBucket: "sid-portfolio-2b486.firebasestorage.app",
-        messagingSenderId: "640672233566",
-        appId: "1:640672233566:web:2bd6db457f16844b0b5ccf",
-        measurementId: "G-6EX6W937Z3",
-      };
-
-      // Initialize Firebase + Firestore
-      const app = initializeApp(firebaseConfig);
-      const db = getFirestore(app);
-
-      // Form elements
-      const form = document.getElementById("contact-form");
+    <script>
+      const params = new URLSearchParams(window.location.search);
       const statusEl = document.getElementById("form-status");
 
-      // Safety check
-      if (!form || !statusEl) {
-        console.error("Contact form elements not found.");
-      } else {
-        form.addEventListener("submit", async (e) => {
-          e.preventDefault();
-
-          const name = document.getElementById("name")?.value?.trim();
-          const email = document.getElementById("email")?.value?.trim();
-          const message = document.getElementById("message")?.value?.trim();
-
-          if (!name || !email || !message) {
-            statusEl.textContent = "❌ Please fill in all fields.";
-            return;
-          }
-
-          const button = form.querySelector('button[type="submit"]');
-          if (button) {
-            button.disabled = true;
-            button.textContent = "Sending…";
-          }
-          statusEl.textContent = "Sending…";
-
-          try {
-            // ✅ Save submission to Firestore
-            await addDoc(collection(db, "contactMessages"), {
-              name,
-              email,
-              message,
-              createdAt: serverTimestamp(),
-              source: window.location.hostname,
-            });
-
-            statusEl.textContent = "✅ Message sent! I’ll reply soon.";
-            form.reset();
-          } catch (err) {
-            console.error("Firestore error:", err);
-            statusEl.textContent = "❌ Could not send. Please try again.";
-          } finally {
-            if (button) {
-              button.disabled = false;
-              button.textContent = "Send Message";
-            }
-          }
-        });
+      if (params.get("sent") === "true" && statusEl) {
+        statusEl.textContent = "✅ Message sent! I’ll reply soon.";
       }
     </script>
 </body>
